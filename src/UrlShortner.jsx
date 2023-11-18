@@ -21,7 +21,8 @@ function UrlShortner(props) {
         toast('URL Shortened successfully!', {
           position: 'top-center',
           type: 'success',
-          autoClose: 1500
+          autoClose: 1500,
+          className: 'm-3',
         });
         setShortenedLink(response.data);
         setError(null);
@@ -33,7 +34,8 @@ function UrlShortner(props) {
       toast('Error please enter a valid link!', {
           position: 'top-center',
           type: 'error',
-          autoClose: 1500
+          autoClose: 1500,
+          className: 'm-3',
         });
       setError('An error occurred. Please try again later.');
       setShortenedLink(null);
@@ -46,7 +48,9 @@ function UrlShortner(props) {
       toast('Please shorten a URL first !', {
         position: 'top-center',
         type: 'error',
-        autoClose: 1500
+        autoClose: 1500,
+        className: 'm-3 ',
+        
       });
       setError('Please shorten a URL first.');
       return;
@@ -63,7 +67,8 @@ function UrlShortner(props) {
       toast('Link Copied To Clipboard', {
         position: 'top-center',
         type: 'success',
-        autoClose: 2000
+        autoClose: 2000,
+        className: 'm-3',
       });
     } catch (err) {
       setError('Failed to copy text: ', err);
@@ -78,7 +83,8 @@ function UrlShortner(props) {
       toast('Please shorten a URL first.!', {
         position: 'top-center',
         type: 'error',
-        autoClose: 1500
+        autoClose: 1500,
+        className: 'm-3',
       });
       setError('Please shorten a URL first.');
       return;
@@ -106,13 +112,13 @@ function handleDownload() {
           <ToastContainer />
           <div className="mt-20  h-fit flex justify-center  ">
             <div className=" text-center">
-              <h1 className=" text-2xl font-medium text-blue-500 mb-4">
-                Sample <span className=" text-purple-600 font-bold">URL Shortener</span>
+              <h1 className=" text-2xl font-medium text-blue-600 mb-4">
+                Paste URL <span className=" text-purple-700 font-bold">to be shortened</span>
               </h1>
               <div>
                 <input
                   className="outline-none border-2 border-blue-500 rounded-md backdrop-blur-xl bg-white/20 shadow-md px-3 py-3"
-                  placeholder="Enter link to be shortened"
+                  placeholder="Enter link here"
                   type="url"
                   value={userInput}
                   onChange={(e) => {
@@ -139,7 +145,7 @@ function handleDownload() {
               </div>
               <div className="mt-5">
                 {error && <div className="text-red-500 mb-2">{error}</div>}
-                <div className="relative px-4 py-2 bg-white shadow-lg rounded-xl  bg-clip-padding bg-opacity-60 border border-gray-200 text-slate-500">
+                <div className="relative  px-4 py-2 bg-white shadow-lg rounded-xl  bg-clip-padding bg-opacity-60 border border-gray-200 text-slate-500">
                   {shortenedLink ? shortenedLink : 'Shorten An URL First'}
                 </div>
                 <button
